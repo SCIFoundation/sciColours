@@ -3,36 +3,33 @@
 
 # sciColours
 
-<!-- badges: start -->
-
-<!-- badges: end -->
-
-The goal of sciColours is to …
+sciColours is a package containing the corporate colour schemes of SCIF.
 
 ## Installation
 
 You can install the released version of sciColours from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("sciColours")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("gronert-m/sciColours")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Basic use examples
 
 ``` r
 library(sciColours)
 library(ggplot2)
 
+# sci_pal requires to select the palette (default is "main")  followed by the number of colours 
+sci_pal()(2)
+#> [1] "#A05163" "#DFF2FD"
+sci_pal(palette= "main")(2)
+#> [1] "#A05163" "#DFF2FD"
+sci_pal(palette= "secondary")(3)
+#> [1] "#A05163" "#0D83AF" "#785DA4"
+
+# scale_colour_sci can be added to the ggplot object
 ggplot(iris, aes(Sepal.Width, Sepal.Length, colour = Species)) +
   geom_point(size = 4) +
   sciColours::scale_colour_sci()
@@ -42,6 +39,7 @@ ggplot(iris, aes(Sepal.Width, Sepal.Length, colour = Species)) +
 
 ``` r
 
+# same for scale_fill_sci
 ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
     geom_bar() +
     theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
@@ -49,9 +47,3 @@ ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
 ```
 
 <img src="man/figures/README-example-2.png" width="100%" />
-
-``` r
-## basic example code
-```
-
-Text\!
