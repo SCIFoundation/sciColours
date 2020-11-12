@@ -95,7 +95,7 @@ sci_pal <- function(palette = "main", reverse = FALSE, ...) {
 
   if (reverse) pal <- rev(pal)
 
-  colorRampPalette(pal, ...)
+  grDevices::colorRampPalette(pal, ...)
 }
 
 #' Colour scale constructor for SCI colours
@@ -107,9 +107,9 @@ sci_pal <- function(palette = "main", reverse = FALSE, ...) {
 #'            scale_colour_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
 #' @examples
-#' library(ggplot2)
-#' library(sciColours)
-#' ggplot(iris, aes(Sepal.Width, Sepal.Length, colour = Species)) + geom_point(size = 4) +  scale_colour_sci()
+#' ggplot2::ggplot(iris, ggplot2::aes(Sepal.Width, Sepal.Length, colour = Species)) +
+#'    ggplot2::geom_point(size = 4) +
+#'    sciColours::scale_colour_sci()
 #'
 #' @rdname sci_cols
 #' @export
@@ -117,9 +117,9 @@ scale_colour_sci <- function(palette = "main", discrete = TRUE, reverse = FALSE,
   pal <- sci_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("colour", paste0("sci_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("colour", paste0("sci_", palette), palette = pal, ...)
   } else {
-    scale_colour_gradientn(colours = pal(256), ...)
+    ggplot2::scale_colour_gradientn(colours = pal(256), ...)
   }
 }
 
@@ -131,22 +131,14 @@ scale_colour_sci <- function(palette = "main", discrete = TRUE, reverse = FALSE,
 #' @param ... Additional arguments passed to discrete_scale() or
 #'            scale_fill_gradientn(), used respectively when discrete is TRUE or FALSE
 #'
-#' @examples
-#' library(ggplot2)
-#' library(sciColours)
-#' ggplot(mpg, aes(manufacturer, fill = manufacturer)) +
-#'   geom_bar() +
-#'   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-#'   scale_fill_drsimonj(palette = "mixed", guide = "none")
-#'
 #' @rdname sci_cols
 #' @export
 scale_fill_sci <- function(palette = "main", discrete = TRUE, reverse = FALSE, ...) {
   pal <- sci_pal(palette = palette, reverse = reverse)
 
   if (discrete) {
-    discrete_scale("fill", paste0("sci_", palette), palette = pal, ...)
+    ggplot2::discrete_scale("fill", paste0("sci_", palette), palette = pal, ...)
   } else {
-    scale_fill_gradientn(colours = pal(256), ...)
+    ggplot2::scale_fill_gradientn(colours = pal(256), ...)
   }
 }

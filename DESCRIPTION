@@ -1,16 +1,16 @@
 Package: sciColours
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+Authors@R: c(
+    person("Mario", "Gronert", email = "mario.gronert@gmail.com", role = "cre"),
+    person("Beatriz", "Calvo", email = "b.calvo-urbano@scifoundation.onmicrosoft.com", role = "aut"),
+    person("Simon", "Jackson", email = "drsimonjackson@gmail.com", role = "cph"))
+URL: https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2
+Description: SCI Colour scheme.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+Imports: 
+    ggplot2
